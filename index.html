@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>API teszt</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif&display=swap" rel="stylesheet"> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div class="main">
+		
+		<div class="inside">
+
+			<span id="title">Anime search: Demon Slayer</span>
+			<button class="apibtn" type="submit">Keresés</button>
+
+			<hr>
+
+			<div class="resp"></div>
+
+		</div>
+
+	</div>
+
+
+
+
+
+	<script>
+		
+		const settings = {
+			"async": true,
+			"crossDomain": true,
+			"url": "https://jikan1.p.rapidapi.com/search/anime?q=Demon%20Slayer",
+			"method": "GET",
+			"headers": {
+				"x-rapidapi-host": "jikan1.p.rapidapi.com",
+				"x-rapidapi-key": "c40b849a27mshba2224e5c49a535p194422jsnd396cc524c0e"
+			}
+		};
+
+		var html_resp = $(".resp");
+		var button = $(".apibtn");
+
+		button.click(function(){
+			$.ajax(settings).done(function (response) {
+				
+				const score = response["results"][0]["score"];
+				const title = response["results"][0]["title"];
+				const eps = response["results"][0]["episodes"];
+				const cover = response["results"][0]["image_url"];
+
+				html_resp.html("Title: " + title + "<br>" + '<img class="cover" src="' + cover + '">' + "<br>" + "Episodes: " + eps + "<br>" + "Rate: " + score);
+
+			});
+		});
+
+	</script>
+</body>
+</html>
