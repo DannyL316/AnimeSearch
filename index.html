@@ -3,11 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>API teszt</title>
+	<title>Anime Search</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif&display=swap" rel="stylesheet"> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -15,39 +17,73 @@
 	<div class="main">
 		
 		<div class="inside">
+			<div id="title_form" class="input-field col s6">
+	        	<input id="anime_name" type="text" class="validate">
+	        	<label for="anime_name">Anime title</label>
+	        </div>
 
-			<span id="title">Anime search: Demon Slayer</span>
-			<button class="apibtn" type="submit">Keresés</button>
+	        <button class="apibtn" type="submit">Search</button>
+		</div>
 
-			<hr>
-
+		<div class="container">
 			<div class="resp"></div>
-
 		</div>
 
 	</div>
 
 
 
+	<main>
+    	<footer class="page-footer">
+	        <div class="container">
+		        <div class="row">
+			        <div class="col l6 s12">
+				        <h5 class="white-text">Made with ♥</h5>
+				        <p class="grey-text text-lighten-4">By S. Dani</p>
+			        </div>
+	            	<div class="col l4 offset-l2 s12">
+	                	<h5 class="white-text">Links</h5>
+	                	<ul>
+		                	<li><a class="grey-text text-lighten-3" href="https://github.com/DannyL316">My Github page</a></li>
+	                	</ul>
+	              	</div>
+	        	</div>
+	        </div>
+	        <div class="footer-copyright">
+		        <div class="container" style="text-align: center;">
+		        © 2022 AnimeSearch
+		        </div>
+	        </div>
+    	</footer>
+	</main>
 
+
+
+
+
+	<!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 	<script>
-		
-		const settings = {
-			"async": true,
-			"crossDomain": true,
-			"url": "https://jikan1.p.rapidapi.com/search/anime?q=Demon%20Slayer",
-			"method": "GET",
-			"headers": {
-				"x-rapidapi-host": "jikan1.p.rapidapi.com",
-				"x-rapidapi-key": "c40b849a27mshba2224e5c49a535p194422jsnd396cc524c0e"
-			}
-		};
 
 		var html_resp = $(".resp");
 		var button = $(".apibtn");
 
+
 		button.click(function(){
+			var search = $("#anime_name").val();
+
+			const settings = {
+			"async": true,
+			"crossDomain": true,
+			"url": 'https://jikan1.p.rapidapi.com/search/anime?q=' + search,
+			"method": "GET",
+			"headers": {
+				"x-rapidapi-host": "jikan1.p.rapidapi.com",
+				"x-rapidapi-key": "c40b849a27mshba2224e5c49a535p194422jsnd396cc524c0e"
+				}
+			};
+
 			$.ajax(settings).done(function (response) {
 				
 				const score = response["results"][0]["score"];
