@@ -4,38 +4,40 @@
 }
 
 body{
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	overflow: auto;
 }
 
 .main{
-	position: flex;
 	/*display:  block;*/
-	width: 50vw;
-	height: 60vh;
+	width: 85vw;
+	height: 70vh;
 	background-color: #464646;
 	justify-content: center;
 	align-items: center;
-	margin-top: 10%;
+	margin-top: 3%;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: auto;
 }
 
 .inside{
 	position: relative;
-	width: 90.7%;
-	height: 78%;
+	display: flex;
+	width: 94.9%;
+	height: 20%;
 	justify-content: center;
 	align-items: center;
-	margin: 2em;
-	overflow-x: auto;
-	overflow-y: auto;
+	margin: 2em 2em 0.3em 2em;
+	overflow: hidden;
 }
 
-span{
-	font-family: arial;
-	color: #fff;
-	text-shadow: 2px 1.5px 1px rgba(0, 0, 0, 0.3);
+#title_form{
+	width: 30vw;
+}
+
+.container{
+	width: 95%;
+	margin: 0 auto;
 }
 
 .apibtn{
@@ -43,16 +45,18 @@ span{
 	padding: 2.5px 10px;
 	margin-left: 20px;
 	border-radius: 5px;
-	background-color: #8D165F;
+	background-color: #EE6E73;
 	color: #fff;
 	text-shadow: 2px 1.5px 1px rgba(0, 0, 0, 0.25);
-	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 	cursor: pointer;
 }
 
 .apibtn:active{
-	background-color: #9F196B;
-	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0);
+	background-color: #ec5c62;
+}
+
+#anime_name{
+	color: white;
 }
 
 hr{
@@ -63,6 +67,7 @@ hr{
 	margin-top: 20px;
 	font-family: 'Roboto Serif', sans-serif;
 	color: #fff;
+	display: block;
 }
 
 .cover{
