@@ -1,5 +1,6 @@
 # AnimeSearch
 Search for an anime with an API
+
 ---
 
 
@@ -8,7 +9,9 @@ Search for an anime with an API
 
 
 
-**Working on last design**
+**Working on:**
+  * Design (final(?))
+  * Showing multiple search results (currently: one)
 
 
 > Version: v2
