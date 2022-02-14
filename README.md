@@ -5,13 +5,7 @@ Search for an anime with an API
 
 
 
-*The website is almost done :)*
+*The website is now fully functioning*
 
 
-
-**Working on:**
-  * Design (final(?))
-  * Showing multiple search results (currently: one)
-
-
-> Version: v2
+> Version: v3
