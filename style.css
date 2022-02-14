@@ -7,8 +7,14 @@ body{
 	overflow: auto;
 }
 
+.bg{
+	padding-top: 1px;
+	background-image: url(./bg-cover.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
 .main{
-	/*display:  block;*/
 	width: 85vw;
 	height: 70vh;
 	background-color: #464646;
@@ -35,9 +41,14 @@ body{
 	width: 30vw;
 }
 
-.container{
+.APIRESP{
 	width: 95%;
 	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	column-gap: 15px;
+	text-align: center;
 }
 
 .apibtn{
