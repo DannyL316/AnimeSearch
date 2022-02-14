@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Anime Search</title>
-    <link rel="icon" type="image/x-icon" href="./favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif&display=swap" rel="stylesheet"> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Compiled and minified CSS -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Anime Search</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif&display=swap" rel="stylesheet"> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
-	<div class="main">
-		
-		<div class="inside">
-			<div id="title_form" class="input-field col s6">
-	        	<input id="anime_name" type="text" class="validate">
-	        	<label for="anime_name">Anime title</label>
-	        </div>
+	<div class="bg">
+		<div class="main">
+			
+			<div class="inside">
+				<div id="title_form" class="input-field col s6">
+		        	<input id="anime_name" type="text" class="validate">
+		        	<label for="anime_name">Anime title</label>
+		        </div>
 
-	        <button class="apibtn" type="submit">Search</button>
+		        <button class="apibtn" type="submit">Search</button>
+			</div>
+
+			<div class="APIRESP">
+				<div class="resp" id="fir"></div>
+				<div class="resp" id="sec"></div>
+				<div class="resp" id="thi"></div>
+				<div class="resp" id="fou"></div>
+				<div class="resp" id="fif"></div>
+				<div class="resp" id="six"></div>
+				<div class="resp" id="sev"></div>
+				<div class="resp" id="eig"></div>
+				<div class="resp" id="nin"></div>
+				<div class="resp" id="ten"></div>
+			</div>
+
 		</div>
-
-		<div class="container">
-			<div class="resp"></div>
-		</div>
-
 	</div>
-
 
 
 	<main>
@@ -67,11 +76,22 @@
 
 	<script>
 
-		var html_resp = $(".resp");
-		var button = $(".apibtn");
+		const one = $("#fir");
+		const two = $("#sec");
+		const three = $("#thi");
+		const four = $("#fou");
+		const five = $("#fif");
+		const six = $("#six");
+		const seven = $("#sev");
+		const eight = $("#eig");
+		const nine = $("#nin");
+		const ten = $("#ten");
+
+		const button = $(".apibtn");
 
 
 		button.click(function(){
+
 			var search = $("#anime_name").val();
 
 			const settings = {
@@ -87,12 +107,84 @@
 
 			$.ajax(settings).done(function (response) {
 				
+				//-----FIRST
 				const score = response["results"][0]["score"];
 				const title = response["results"][0]["title"];
 				const eps = response["results"][0]["episodes"];
 				const cover = response["results"][0]["image_url"];
 
-				html_resp.html("Title: " + title + "<br>" + '<img class="cover" src="' + cover + '">' + "<br>" + "Episodes: " + eps + "<br>" + "Rate: " + score);
+				one.html(title + "<br>" + '<img class="cover" src="' + cover + '">' + "<br>" + "Episodes: " + eps + "<br>" + "Rate: " + score);
+
+				//-----SECOND
+				const score2 = response["results"][1]["score"];
+				const title2 = response["results"][1]["title"];
+				const eps2 = response["results"][1]["episodes"];
+				const cover2 = response["results"][1]["image_url"];
+
+				two.html(title2 + "<br>" + '<img class="cover" src="' + cover2 + '">' + "<br>" + "Episodes: " + eps2 + "<br>" + "Rate: " + score2);
+
+				//-----THIRD
+				const score3 = response["results"][2]["score"];
+				const title3 = response["results"][2]["title"];
+				const eps3 = response["results"][2]["episodes"];
+				const cover3 = response["results"][2]["image_url"];
+
+				three.html(title3 + "<br>" + '<img class="cover" src="' + cover3 + '">' + "<br>" + "Episodes: " + eps3 + "<br>" + "Rate: " + score3);
+
+				//-----FOURTH
+				const score4 = response["results"][3]["score"];
+				const title4 = response["results"][3]["title"];
+				const eps4 = response["results"][3]["episodes"];
+				const cover4 = response["results"][3]["image_url"];5
+				four.html(title4 + "<br>" + '<img class="cover" src="' + cover4 + '">' + "<br>" + "Episodes: " + eps4 + "<br>" + "Rate: " + score4);
+
+				//-----FIFTH
+				const score5 = response["results"][4]["score"];
+				const title5 = response["results"][4]["title"];
+				const eps5 = response["results"][4]["episodes"];
+				const cover5 = response["results"][4]["image_url"];
+
+				five.html(title5 + "<br>" + '<img class="cover" src="' + cover5 + '">' + "<br>" + "Episodes: " + eps5 + "<br>" + "Rate: " + score5);
+
+				//-----SIXTH
+				const score6 = response["results"][5]["score"];
+				const title6 = response["results"][5]["title"];
+				const eps6 = response["results"][5]["episodes"];
+				const cover6 = response["results"][5]["image_url"];
+
+				six.html(title6 + "<br>" + '<img class="cover" src="' + cover6 + '">' + "<br>" + "Episodes: " + eps6 + "<br>" + "Rate: " + score6);
+
+				//-----SEVENTH
+				const score7 = response["results"][6]["score"];
+				const title7 = response["results"][6]["title"];
+				const eps7 = response["results"][6]["episodes"];
+				const cover7 = response["results"][6]["image_url"];
+
+				seven.html(title7 + "<br>" + '<img class="cover" src="' + cover7 + '">' + "<br>" + "Episodes: " + eps7 + "<br>" + "Rate: " + score7);
+
+				//-----EIGHTH
+				const score8 = response["results"][7]["score"];
+				const title8 = response["results"][7]["title"];
+				const eps8 = response["results"][7]["episodes"];
+				const cover8 = response["results"][7]["image_url"];
+
+				eight.html(title8 + "<br>" + '<img class="cover" src="' + cover8 + '">' + "<br>" + "Episodes: " + eps8 + "<br>" + "Rate: " + score8);
+
+				//-----NINTH
+				const score9 = response["results"][8]["score"];
+				const title9 = response["results"][8]["title"];
+				const eps9 = response["results"][8]["episodes"];
+				const cover9 = response["results"][8]["image_url"];
+
+				nine.html(title9 + "<br>" + '<img class="cover" src="' + cover9 + '">' + "<br>" + "Episodes: " + eps9 + "<br>" + "Rate: " + score9);
+
+				//-----TENTH
+				const score10 = response["results"][9]["score"];
+				const title10 = response["results"][9]["title"];
+				const eps10 = response["results"][9]["episodes"];
+				const cover10 = response["results"][9]["image_url"];
+
+				ten.html(title10 + "<br>" + '<img class="cover" src="' + cover10 + '">' + "<br>" + "Episodes: " + eps10 + "<br>" + "Rate: " + score10);
 
 			});
 		});
